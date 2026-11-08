@@ -1,0 +1,34 @@
+# 构建产物
+target/
+
+# 运行数据与日志
+data/
+logs/
+.run/
+
+# 本机演示配置（含凭据与证书私钥）
+config/server.properties
+config/demo.properties
+config/enhanced-server.properties
+config/enhanced-demo.properties
+config/tls/
+
+# 截图与临时证据（按需保留 v6-dash 时取消对应行）
+screenshots/v2-flat/
+screenshots/v3-flat/
+screenshots/v4-flat/
+screenshots/v5-dash/
+test-results/
+
+# 前端工具依赖
+node_modules/
+
+# 系统与编辑器
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.pyc

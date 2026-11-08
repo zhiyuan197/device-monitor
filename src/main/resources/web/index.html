@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设备监控中心 · 实时大屏</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="stats">
+    <div class="stat-card">
+      <div class="stat-icon" data-tone="blue">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+      </div>
+      <div class="stat-body">
+        <div class="stat-label">在线设备</div>
+        <div class="stat-value" id="statOnline">0</div>
+      </div>
+      <div class="stat-sub" id="statTotal">共 0 台</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" data-tone="red">
+        <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      </div>
+      <div class="stat-body">
+        <div class="stat-label">活跃告警</div>
+        <div class="stat-value" id="statAlerts">0</div>
+      </div>
+      <div class="stat-sub" id="statAlertsSub">全部已处理</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" data-tone="green">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="stat-body">
+        <div class="stat-label">平均链路延迟</div>
+        <div class="stat-value"><span id="statLatency">0</span><span class="unit">ms</span></div>
+      </div>
+      <div class="stat-sub" id="statLatencySub">链路状态良好</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon" data-tone="cyan">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="stat-body">
+        <div class="stat-label">持续运行</div>
+        <div class="stat-value" id="statUptime">--:--:--</div>
+      </div>
+      <div class="stat-sub" id="statMode">实时模式</div>
+    </div>
+  </header>
+
+  <aside id="alerts">
+    <div class="panel-title">
+      <span class="dot red"></span>实时告警流
+      <span class="panel-tag">WebSocket 推送</span>
+    </div>
+    <div id="alertList" class="alert-list"></div>
+  </aside>
+
+  <main id="topology">
+    <div class="panel-title">
+      <span class="dot blue"></span>网络拓扑
+      <span class="panel-tag" id="topoTag">--</span>
+    </div>
+    <div id="topoChart"></div>
+  </main>
+
+  <section id="charts">
+    <div class="panel-title">
+      <span class="dot cyan"></span>实时性能
+      <span class="panel-tag">1s 采样</span>
+    </div>
+    <div id="trendChart"></div>
+    <div class="panel-title sub-title">
+      <span class="dot green"></span>链路延迟热力
+    </div>
+    <div id="heatList" class="heat-list"></div>
+  </section>
+
+  <footer id="footer">
+    <span id="connState" class="conn wait"><span class="dot"></span>连接中…</span>
+    <span id="serverInfo">--</span>
+    <span id="clock">--</span>
+    <span class="footer-brand">设备监控中心 · 实时大屏</span>
+  </footer>
+
+  <script src="echarts.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+server.host=0.0.0.0
+server.port=5050
+server.authTimeoutMillis=5000
+server.maxMessageBytes=65536
+device.heartbeatIntervalMillis=5000
+device.offlineTimeoutMillis=15000
+alert.cpu.triggerThreshold=80
+alert.cpu.recoverThreshold=75
+alert.cpu.requiredConsecutiveSamples=3
+alert.temperature.triggerThreshold=75
+alert.temperature.recoverThreshold=70
+alert.memory.triggerThreshold=85
+alert.memory.recoverThreshold=78
+alert.memory.requiredConsecutiveSamples=3
+database.path=data/device-monitor.db
+data.retentionDays=30
+# TLS 演示开关：默认关闭；开启时请先运行 scripts\init-keystore.ps1
+server.tls.enabled=false
+server.tls.port=5051
+server.tls.keystore=config/tls/server-keystore.p12
+server.tls.keystorePassword=device-monitor-demo
+server.tls.truststore=config/tls/client-truststore.p12
+server.tls.truststorePassword=device-monitor-demo
+
